@@ -1,0 +1,50 @@
+[
+  {
+    "district": [
+      {
+        "school": [
+          {
+            "9th": [
+              {
+                "total": 1
+              },
+              {
+                "male": 1
+              },
+              {
+                "female": 1
+              },
+              {
+                "non-binary": 1
+              },
+              {
+                "white": 1
+              },
+              {
+                "etc_ethnicities": 1
+              },
+              {
+                "each_group": 1
+              }
+            ]
+          },
+          {
+            "10th": ""
+          },
+          {
+            "11th": ""
+          },
+          {
+            "12th": ""
+          }
+        ]
+      },
+      {
+        "school2": ""
+      }
+    ]
+  },
+  {
+    "district2": ""
+  }
+]
