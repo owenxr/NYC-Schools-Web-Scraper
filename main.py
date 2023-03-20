@@ -30,7 +30,7 @@ with open('enrollment.csv', 'w', newline='') as csvfile:
             school_dict = dist_dict[s]
             for g in school_dict:
                 grade_dict = school_dict[g]
-                tmp = [d, s, g]
+                tmp = [d.strip(), s.strip(), g]
                 for v in grade_dict.values():
                     tmp.append(v)
                 rows.append(tmp)

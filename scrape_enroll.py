@@ -93,27 +93,29 @@ def enr_group_total(link, dict : dict):
 
         g_dict = dict[i]
 
+        row = bs.findAll('div', {'class' : 'row'})[22]
+
+        groups = row.findAll('div', {'class' : 'title-features'})
+        totals = row.findAll('h4')
+
+        print(groups)
+        
+        for g in range(len(groups)):
+          grp_str = alg.switch_key(groups[g].getText())
+          grp_total = alg.int_or_null(totals[2*g].getText())
+
+          g_dict[grp_str] = grp_total
+
         row = bs.findAll('div', {'class' : 'row'})[23]
 
         groups = row.findAll('div', {'class' : 'title-features'})
         totals = row.findAll('h4')
         
         for g in range(len(groups)):
-          gender_str = alg.switch_key(groups[g].getText())
-          gender_total = alg.int_or_null(totals[2*g].getText())
+          grp_str = alg.switch_key(groups[g].getText())
+          grp_total = alg.int_or_null(totals[2*g].getText())
 
-          g_dict[gender_str] = gender_total
-
-        row = bs.findAll('div', {'class' : 'row'})[24]
-
-        groups = row.findAll('div', {'class' : 'title-features'})
-        totals = row.findAll('h4')
-        
-        for g in range(len(groups)):
-          gender_str = alg.switch_key(groups[g].getText())
-          gender_total = alg.int_or_null(totals[2*g].getText())
-
-          g_dict[gender_str] = gender_total
+          g_dict[grp_str] = grp_total
 
         dict[i] = g_dict
 
