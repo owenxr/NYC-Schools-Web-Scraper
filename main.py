@@ -15,9 +15,10 @@ titles = dists.findAll('div', {'class': 'title'})
 
 res = sd.scrape_dist(titles)
 
-enroll_fields = ["District", "School", "Grade", "Total"]
-for i in alg.key_dict:
-    enroll_fields.append(alg.key_dict[i])
+enroll_fields = ["District", "School", "Grade", "Total", "Male", "Female", "Non-binary", "American Indian/Alaska Native",
+                 "Black", "Hispanic/Latino", "Asian/Hawaiian/Pacific Islander", 
+                 "White", "Multiracial", "Learning English", "Disabilities", "Economically Disadvantaged", "Migrant", "Homeless", "Foster Care", 
+                 "Parents In Armed Forces"]
 
 with open('enrollment.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
@@ -31,8 +32,8 @@ with open('enrollment.csv', 'w', newline='') as csvfile:
             for g in school_dict:
                 grade_dict = school_dict[g]
                 tmp = [d.strip(), s.strip(), g]
-                for v in grade_dict.values():
-                    tmp.append(v)
+                for k in enroll_fields[3::]:
+                    tmp.append(grade_dict.get(k, -1))
                 rows.append(tmp)
 
     writer.writerows(rows)
