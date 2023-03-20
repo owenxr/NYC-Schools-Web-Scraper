@@ -1,12 +1,13 @@
 from bs4 import BeautifulSoup
-from urllib.request import urlopen
+import urllib
 import scrape_enroll as scr_e
 
 high_school_grades = ['9TH GRADE', '10TH GRADE', '11TH GRADE', '12TH GRADE']
 
 def find_grades(inst_id):
     enroll_link = "https://data.nysed.gov/enrollment.php?year=2022&" + inst_id
-    web = urlopen(enroll_link)
+    req = urllib.request.Request(enroll_link, headers={'User-Agent':'Mozilla/5.0'})
+    web = urllib.request.urlopen(req).read()
     enroll_bs = BeautifulSoup(web, 'html.parser')
 
     grades = enroll_bs.findAll('div', {'class' : 'title-features truncate'})
@@ -31,13 +32,13 @@ def is_high_school(school):
 # Return dict with key as school name
 def scrape_school(schools):
     school_info = {}
-
+    print("School Scraping")
     for s in schools:
       name = s.getText()
+      print(name)
 
       href = s.find('a')['href']
       inst_id = href[href.find('instid')::]
-
       school_info[name] = scr_e.scr_enroll(inst_id)
 
     return school_info

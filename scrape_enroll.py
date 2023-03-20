@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from urllib.request import urlopen
+import urllib
 import alg
 
 def enr_grade_total(link, dict : dict):
@@ -11,7 +11,8 @@ def enr_grade_total(link, dict : dict):
         else:
           tmp_link = l + str(i)
 
-        web = urlopen(tmp_link)
+        req = urllib.request.Request(tmp_link, headers={'User-Agent':'Mozilla/5.0'})  
+        web = urllib.request.urlopen(req).read()
         bs = BeautifulSoup(web, 'html.parser')
 
         g_dict = dict[i]
@@ -30,7 +31,8 @@ def enr_gender_total(link, dict : dict):
         else:
           tmp_link = l + str(i)
 
-        web = urlopen(tmp_link)
+        req = urllib.request.Request(tmp_link, headers={'User-Agent':'Mozilla/5.0'})  
+        web = urllib.request.urlopen(req).read()
         bs = BeautifulSoup(web, 'html.parser')
 
         g_dict = dict[i]
@@ -58,7 +60,8 @@ def enr_ethnicity_total(link, dict : dict):
         else:
           tmp_link = l + str(i)
 
-        web = urlopen(tmp_link)
+        req = urllib.request.Request(tmp_link, headers={'User-Agent':'Mozilla/5.0'})  
+        web = urllib.request.urlopen(req).read()
         bs = BeautifulSoup(web, 'html.parser')
 
         g_dict = dict[i]
@@ -84,7 +87,8 @@ def enr_group_total(link, dict : dict):
         else:
           tmp_link = l + str(i)
 
-        web = urlopen(tmp_link)
+        req = urllib.request.Request(tmp_link, headers={'User-Agent':'Mozilla/5.0'})  
+        web = urllib.request.urlopen(req).read()
         bs = BeautifulSoup(web, 'html.parser')
 
         g_dict = dict[i]
@@ -115,6 +119,7 @@ def enr_group_total(link, dict : dict):
 
 # Return Dict with each key being a grade and Total enrollment of school
 def scr_enroll(inst_id):
+    print("Enrollment Scraping")
     enroll_info = {}
     enroll_info[9] = {}
     enroll_info[10] = {}

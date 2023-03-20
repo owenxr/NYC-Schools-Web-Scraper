@@ -1,10 +1,13 @@
-from urllib.request import urlopen
+import urllib.request
 from bs4 import BeautifulSoup
 import csv
 import scrape_dist as sd
 import alg
 
-web = urlopen('https://data.nysed.gov/lists.php?start=78&type=district')
+link = 'https://data.nysed.gov/lists.php?start=78&type=district'
+req = urllib.request.Request(link, headers={'User-Agent':'Mozilla/5.0'})
+web = urllib.request.urlopen(req).read()
+
 bs = BeautifulSoup(web, 'html.parser')
 
 dists = bs.findAll('section', {'class': 'lists'})[0]
@@ -16,7 +19,7 @@ enroll_fields = ["District", "School", "Grade", "Total"]
 for i in alg.key_dict:
     enroll_fields.append(alg.key_dict[i])
 
-with open('enrollment.csv', 'w') as csvfile:
+with open('enrollment.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(enroll_fields)
 

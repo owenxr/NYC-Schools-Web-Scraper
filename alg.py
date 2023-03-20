@@ -24,4 +24,4 @@ def switch_key(key):
 def int_or_null(i):
     if i == "—":
         return -1
-    return int(i)
+    return int(i.replace(',', ''))
