@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import urllib
 import scrape_enroll as scr_e
+import scrape_grad as scr_g
 
 high_school_grades = ['9TH GRADE', '10TH GRADE', '11TH GRADE', '12TH GRADE']
 
@@ -40,6 +41,19 @@ def scrape_school(schools):
       href = s.find('a')['href']
       inst_id = href[href.find('instid')::]
       school_info[name] = scr_e.scr_enroll(inst_id)
+
+    return school_info
+
+def scrape_school_grad(schools):
+    school_info = {}
+    print("School Gradrate Scraping")
+    for s in schools:
+      name = s.getText()
+      print(name)
+
+      href = s.find('a')['href']
+      inst_id = href[href.find('instid')::]
+      school_info[name] = scr_g.scrape_grad(inst_id)
 
     return school_info
     

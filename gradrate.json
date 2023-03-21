@@ -1,0 +1,44 @@
+[
+  {
+    "district": [
+      {
+        "school": [
+          {
+            "group": [
+              {
+                "grad rate": 1
+              },
+              {
+                "Advanced Designation": 1
+              },
+              {
+                "Regents Diploma": 1
+              },
+              {
+                "Local Diploma": 1
+              },
+              {
+                "Non Diploma Cred": 1
+              },
+              {
+                "Still Enrolled": 1
+              },
+              {
+                "GED Transfer": 1
+              },
+              {
+                "Dropout": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "school2": ""
+      }
+    ]
+  },
+  {
+    "district2": ""
+  }
+]

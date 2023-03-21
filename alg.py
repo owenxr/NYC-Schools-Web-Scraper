@@ -8,11 +8,13 @@ key_dict = {
     "WHITE": "White",
     "MULTIRACIAL": "Multiracial",
     "ENGLISH LANGUAGE LEARNERS": "Learning English",
+    "ENGLISH LANGUAGE LEARNER": "Learning English",
     "STUDENTS WITH DISABILITIES": "Disabilities",
     "ECONOMICALLY DISADVANTAGED": "Economically Disadvantaged",
     "MIGRANT": "Migrant",
     "HOMELESS": "Homeless",
     "FOSTER CARE": "Foster Care",
+    "IN FOSTER CARE": "Foster Care",
     "PARENT IN ARMED FORCES": "Parents In Armed Forces"
 }
 
