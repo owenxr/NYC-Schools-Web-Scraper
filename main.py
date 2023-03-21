@@ -47,7 +47,7 @@ def grad_data():
     grd = sd.scrape_dist_grad(titles)
     with open('graduation.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(enroll_fields)
+        writer.writerow(grad_data_fields)
 
         rows = []
         for d in grd:
