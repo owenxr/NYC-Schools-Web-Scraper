@@ -29,7 +29,7 @@ exp_data_fields = ["Districts", "School", "S_T_Ratio", "lt_4", "4_20", "21+"]
 
 def enroll_data():
     enr = sd.scrape_dist(titles)
-    with open('csvs/enrollment.csv', 'w', newline='') as csvfile:
+    with open('data/enrollment.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(enroll_fields)
 
@@ -49,7 +49,7 @@ def enroll_data():
 
 def grad_data():
     grd = sd.scrape_dist_grad(titles)
-    with open('csvs/graduation.csv', 'w', newline='') as csvfile:
+    with open('data/graduation.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(grad_data_fields)
 
@@ -69,7 +69,7 @@ def grad_data():
 
 def fund_data():
     fund = sd.scrape_funding(titles)
-    with open('csvs/funding.csv', 'w', newline='') as csvfile:
+    with open('data/funding.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(fund_data_fields)
 
@@ -87,7 +87,7 @@ def fund_data():
 
 def exp_data():
     exp = sd.scrape_exp(titles)
-    with open('csvs/experience.csv', 'w', newline='') as csvfile:
+    with open('data/experience.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(exp_data_fields)
 
