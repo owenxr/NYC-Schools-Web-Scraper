@@ -26,7 +26,7 @@ def scrape_dist(dist):
 
     for d in dist:
       name = d.getText()
-      if "NYC GEOG" not in name and "NYC SPEC" not in name:
+      if "NYC GEOG" not in name:
          continue
 
       path = os.path.join(os.getcwd(),"Districts_Dicts",name + ".dict")
@@ -60,7 +60,7 @@ def scrape_dist_grad(dist):
 
     for d in dist:
       name = d.getText()
-      if "NYC GEOG" not in name and "NYC SPEC" not in name:
+      if "NYC GEOG" not in name:
          continue
 
       path = os.path.join(os.getcwd(),"Grad_Rate_Dicts",name + ".dict")
@@ -87,7 +87,69 @@ def scrape_dist_grad(dist):
 
     return dist_dict
 
+def scrape_funding(dist):
+    print("District-School Funding Scraping")
+    dist_dict = {}
+
+    for d in dist:
+      name = d.getText()
+      if "NYC GEOG" not in name:
+         continue
+
+      path = os.path.join(os.getcwd(),"Funding_Dicts",name + ".dict")
+
+      if (name + ".dict") in os.listdir(os.path.join(os.getcwd(),"Funding_Dicts")):
+        with open(path, 'rb') as fp:
+          dist_dict[name] = pickle.load(fp)
+
+        print(f"Loaded and Skipping {name}")
+        continue
+      
+      print(name)
+      
+      link = "https://data.nysed.gov/" + d.find('a')['href']
+      lst = get_schools(link)
+      dist_dict[name] = ss.scrape_school_funding(lst)
+
+      path = os.path.join(os.getcwd(),"Funding_Dicts",name + ".dict")
+
+      with open(path, 'wb') as fp:
+        pickle.dump(dist_dict[name], fp)
+        print(f'dictionary {path} saved successfully to file')
 
 
-    
+    return dist_dict
+
+def scrape_exp(dist):
+    print("District Experience Scraping")
+    dist_dict = {}
+
+    for d in dist:
+      name = d.getText()
+      if "NYC GEOG" not in name:
+         continue
+
+      path = os.path.join(os.getcwd(),"Experience_Dicts",name + ".dict")
+
+      if (name + ".dict") in os.listdir(os.path.join(os.getcwd(),"Experience_Dicts")):
+        with open(path, 'rb') as fp:
+          dist_dict[name] = pickle.load(fp)
+
+        print(f"Loaded and Skipping {name}")
+        continue
+      
+      print(name)
+      
+      link = "https://data.nysed.gov/" + d.find('a')['href']
+      lst = get_schools(link)
+      dist_dict[name] = ss.scrape_school_exp(lst)
+
+      path = os.path.join(os.getcwd(),"Experience_Dicts",name + ".dict")
+
+      with open(path, 'wb') as fp:
+        pickle.dump(dist_dict[name], fp)
+        print(f'dictionary {path} saved successfully to file')
+
+
+    return dist_dict
     

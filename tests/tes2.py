@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import urllib.request
-import alg
+import scripts.alg as alg
 
 tmp_link = "https://data.nysed.gov/enrollment.php?instid=800000043426&year=2022&grades%5B%5D=09"
 

@@ -1,7 +1,7 @@
 import os
 import pickle
 
-path = os.path.join(os.getcwd(),"Grad_Rate_Dicts","NYC GEOG DIST # 1 - MANHATTAN .dict")
+path = os.path.join(os.getcwd(),"Funding_Dicts","NYC GEOG DIST # 1 - MANHATTAN .dict")
 
 dist_dict = {}
 

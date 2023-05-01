@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import urllib.request
-import alg
+import scripts.alg as alg
 
 def grab_groups(link, dict : dict):
     req = urllib.request.Request(link, headers={'User-Agent':'Mozilla/5.0'})  

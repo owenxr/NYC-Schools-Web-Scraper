@@ -1,0 +1,22 @@
+{
+  "district": [
+    {
+      "school": [
+        {
+          "Accountability": "Val",
+          "Needs": "Val",
+          "School_Exp": 10,
+          "Classroom_Salary": 10,
+          "Other_Inst_Salary": 10,
+          "Inst_Benefits": 10,
+          "Prof_Dev": 10,
+          "Admin_Salary": 10,
+          "Admin_Benefits": 10,
+          "Other_Salaries": 10,
+          "Other_Benefits": 10,
+          "Other_Exp": 10
+        }
+      ]
+    }
+  ]
+}

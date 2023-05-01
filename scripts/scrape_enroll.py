@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import urllib
-import alg
+import scripts.alg as alg
 
 def enr_grade_total(link, dict : dict):
     l = link + "&grades%5B%5D="
